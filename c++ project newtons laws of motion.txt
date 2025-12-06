@@ -1,0 +1,78 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+    cout << "NEWTON'S LAWS OF MOTION\n\n";
+
+    cout << "1. FIRST LAW:\n";
+    cout << "An object stays at rest or keeps moving unless a force acts on it.\n\n";
+
+    cout << "2. SECOND LAW:\n";
+    cout << "Force = Mass * Acceleration\n\n";
+
+    cout << "3. THIRD LAW:\n";
+    cout << "Every action has an equal and opposite reaction.\n\n";
+
+    int repeat = 1;
+
+    while (repeat == 1) {
+
+        string choice;
+        double force, mass, acceleration;
+
+        cout << "\nWhat do you want to calculate? (force / mass / acceleration): ";
+        cin >> choice;
+
+        // ↓↓↓ VERY SIMPLE LOWERCASE CONVERSION ↓↓↓
+        if (choice[0] >= 'A' && choice[0] <= 'Z') {
+            choice[0] = choice[0] + 32;  // convert first letter to lowercase
+        }
+        // ↑↑↑ EASY TO EXPLAIN USING ASCII VALUES ↑↑↑
+
+        if (choice == "force") {
+            cout << "\n--- CALCULATING FORCE ---\n";
+            cout << "Enter mass (kg): ";
+            cin >> mass;
+            cout << "Enter acceleration (m/s^2): ";
+            cin >> acceleration;
+
+            force = mass * acceleration;
+            cout << "Force = " << force << " Newtons\n";
+        }
+
+        else if (choice == "mass") {
+            cout << "\n--- CALCULATING MASS ---\n";
+            cout << "Enter force (N): ";
+            cin >> force;
+            cout << "Enter acceleration (m/s^2): ";
+            cin >> acceleration;
+
+            mass = force / acceleration;
+            cout << "Mass = " << mass << " kg\n";
+        }
+
+        else if (choice == "acceleration") {
+            cout << "\n--- CALCULATING ACCELERATION ---\n";
+            cout << "Enter force (N): ";
+            cin >> force;
+            cout << "Enter mass (kg): ";
+            cin >> mass;
+
+            acceleration = force / mass;
+            cout << "Acceleration = " << acceleration << " m/s^2\n";
+        }
+
+        else {
+            cout << "\nInvalid input! Please enter: force / mass / acceleration.\n";
+        }
+
+        cout << "\nWould you like to calculate again? (1 = yes, 0 = no): ";
+        cin >> repeat;
+    }
+
+    cout << "\nProgram Finished. Thank you!\n";
+
+    return 0;
+}
